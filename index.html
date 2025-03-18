@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn English with Doaa Elsaeed Ahmed</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #D8BFD8; /* بنفسجي فاتح */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .word-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 90%;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            background: linear-gradient(to right, #8A2BE2, #DA70D6);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+            text-transform: capitalize;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #DA70D6, #8A2BE2);
+            transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* تأثير التوهج */
+        .glow {
+            box-shadow: 0px 0px 20px 8px rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>مرحبًا بك في موقع تعلم الإنجليزية مع <span style="color:white;">Doaa Elsaeed Ahmed</span>!</h1>
+    <p>اضغط على أي كلمة لسماع نطقها.</p>
+
+    <div class="word-container">
+        <script>
+            let words = [
+                "Meticulous - شديد الدقة", "Ephemeral - سريع الزوال", "Serendipity - صدفة سعيدة",
+                "Pernicious - مدمر / خبيث", "Ineffable - لا يوصف", "Ubiquitous - منتشر في كل مكان",
+                "Obfuscate - يعقد / يربك", "Pulchritudinous - رائع الجمال", "Recalcitrant - عنيد / متمرد",
+                "Lugubrious - كئيب / حزين جدًا", "Euphoria - نشوة", "Benevolent - كريم / خير",
+                "Malevolent - خبيث / شرير", "Aberration - انحراف / شذوذ", "Mellifluous - عذب / سلس",
+                "Superfluous - زائد / غير ضروري", "Quintessential - جوهري / مثالي", "Plethora - وفرة / كثرة",
+                "Auspicious - مبشر بالخير", "Capricious - متقلب / متغير", "Equanimity - هدوء / رباطة جأش",
+                "Sycophant - متملق / منافق", "Esoteric - غامض / مقصور على فئة معينة", "Sagacious - حكيم / ذكي",
+                "Zephyr - نسيم عليل", "Halcyon - هادئ / مزدهر", "Resplendent - متألق / رائع",
+                "Ebullient - مفعم بالحيوية", "Evanescent - زائل / سريع التلاشي", "Diaphanous - شفاف / رقيق",
+                "Reverie - حلم يقظة", "Penumbra - ظل خفيف", "Cynosure - محط الأنظار",
+                "Redolent - يفوح برائحة", "Susurrus - همهمة / حفيف", "Dulcet - عذب / مريح",
+                "Propinquity - قرب / مجاورة", "Peregrinate - يسافر / يطوف", "Aesthete - محب للجمال",
+                "Demure - محتشم / خجول", "Sonorous - جهوري / رنان", "Lissome - رشيق / لين",
+                "Mirth - مرح / بهجة", "Harbinger - نذير / بشير", "Gossamer - خفيف / رقيق جدًا",
+                "Epiphany - لحظة إدراك", "Laconic - مقتضب / موجز", "Sanguine - متفائل / مرح",
+                "Quixotic - مثالي جدًا", "Susceptible - حساس / عرضة لـ", "Incandescent - متوهج / مشرق",
+                "Ineffaceable - لا يُمحى", "Limerence - افتتان عاطفي", "Obstreperous - مشاغب / صاخب",
+                "Ebullience - فوران / حماس", "Labyrinthine - معقد / متشابك", "Refulgent - متألق / مشع",
+                "Nebulous - غامض / ضبابي", "Transient - عابر / مؤقت", "Ephemeral - سريع الزوال",
+                "Solitude - وحدة / عزلة", "Inept - غير كفء", "Incorrigible - لا يمكن إصلاحه",
+                "Hapless - سيئ الحظ", "Ethereal - سماوي / رقيق", "Disparate - متباين / مختلف",
+                "Belligerent - عدواني / محارب", "Effulgent - مشرق / متألق", "Felicitous - مناسب / ملائم",
+                "Avaricious - طماع / جشع", "Idyllic - شاعري / جميل", "Proclivity - ميل / نزعة",
+                "Mellifluous - عذب / سلس", "Perfidious - غادر / خائن", "Cacophony - ضوضاء / نشاز",
+                "Impetuous - متهور / متسرع", "Oblivious - غير مدرك", "Unctuous - متملق / زيتي",
+                "Vociferous - صاخب / مجاهر", "Mawkish - عاطفي بشكل مبالغ", "Insipid - باهت / ممل"
+            ];
+
+            words.forEach(word => {
+                let btn = document.createElement("button");
+                btn.textContent = word;
+                btn.onclick = function() {
+                    let speech = new SpeechSynthesisUtterance(word.split(" - ")[0]);
+                    speech.lang = "en-US";
+                    window.speechSynthesis.speak(speech);
+
+                    document.querySelectorAll("button").forEach(b => b.classList.remove("glow"));
+                    btn.classList.add("glow");
+                };
+                document.querySelector(".word-container").appendChild(btn);
+            });
+        </script>
+    </div>
+
+</body>
+</html>
